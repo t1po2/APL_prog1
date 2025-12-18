@@ -16,21 +16,15 @@ int main() {
 		print_data(schueler);
 	}
 
+	
+	//which Menu Option is selected
+	
+	printf("%d", menu_value());
 
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 
 	fclose(schueler);
 	fclose(noten);
+	return 0;
 }

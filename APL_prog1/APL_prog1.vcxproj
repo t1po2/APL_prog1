@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="check_file.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Menu_options.c" />
     <ClCompile Include="print_file.c" />
   </ItemGroup>
   <ItemGroup>

@@ -29,3 +29,4 @@ t_fachnoten grades[max];
 
 int check_file(FILE* schueler, FILE* noten);
 void print_data(FILE* schueler);
+int menu_value();

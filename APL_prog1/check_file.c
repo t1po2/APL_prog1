@@ -9,5 +9,9 @@ int check_file(FILE* schueler, FILE* noten) {
 		noten = fopen("noten.csv", "w");
 		return 1;
 	}
+	else {
+		// Daten einlesen am besten ist wenn schueler eingelesen wrd und dnann die ID auf schueler.csv mit ID auf noten.csv verglichen wird und dann dazu eine ein datens atz erzeugt wird wenn nichts vorhanden ist
+	}
 	return 0;
 }
+
