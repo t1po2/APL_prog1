@@ -1,0 +1,28 @@
+Anforderungen APL
+-----------------
+
+1. Datenstruktur 
+-Anwendung struct
+->im struct soll verwendet werden: eindeutige ID, Zeichenkette, mehrere Datensätze, 
+-Verwendung eines Arrays 
+
+2. Datenimport
+-Start des Programm daten Import aus einer Datei
+-Import soll dann in einem Array gespeichert werden
+
+3. Datensätze hinzufügen
+-neue daten hinzufügen sollte möglich sein
+-in einem Array eingespeichert und beim beenden des Programms soll es gespeichert werden
+
+4. Daten verwalten & aktualisieren
+-bestehende Daten bearbeiten
+-bearbeitende daten sollen mithilfe der ID Eingabe identifiziert werden 
+-beim beenden daten sollen gespeichert werden 
+
+5. Datenanzeige
+-aktuelle Liste soll angezeigt werden 
+
+6.User-interface
+-Menu
+-Optionen zur Auswahl
+

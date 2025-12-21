@@ -19,8 +19,12 @@ int main() {
 	
 	//which Menu Option is selected
 	
-	printf("%d", menu_value());
+	printf("%d\n", menu_value());
+	/*while (1) {
+		if (menu_value() == 1) {
 
+		}
+	}*/
 	
 
 

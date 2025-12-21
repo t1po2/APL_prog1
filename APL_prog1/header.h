@@ -7,7 +7,8 @@ typedef struct {
 	int id1;
 	char name[30];
 	char nachname[30];
-	int average;
+	int semester;
+	float average;					//--> durchschnitt von t_fachnoten
 }t_schueler_generalinfo;
 
 t_schueler_generalinfo student[max];
