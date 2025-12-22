@@ -14,7 +14,7 @@ int main() {
 		printf("Keine Datei vorhanden.\nDie Datei schueler.csv und noten.csv wird erstellt.\n");
 	}
 	else {
-		print_data(schueler);
+		printf("Dateien wurden geladen.\n");
 	}
 
 	
@@ -29,9 +29,20 @@ int main() {
 			add_student();
 		}
 		else if (mvalue == 5) {
-			break;
+			continue; //edit it back to break jsut for testing reasons
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+	//test print
 	
 	for (int i=0; i < max; i++) {
 		if (student[i].id1 != 0) {

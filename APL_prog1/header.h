@@ -1,6 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define max 10
 #include <stdio.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdlib.h>
+#define max 10
 
 //general data of students
 typedef struct {
@@ -31,3 +34,4 @@ int check_file(FILE* schueler, FILE* noten);
 void print_data(FILE* schueler);
 int menu_value();
 void add_student();
+void edit_student();
