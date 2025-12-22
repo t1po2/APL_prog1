@@ -12,7 +12,6 @@ typedef struct {
 }t_schueler_generalinfo;
 
 t_schueler_generalinfo student[max];
-
 //specific grades of students to calculate average
 typedef struct {
 	int id2;
@@ -31,3 +30,4 @@ t_fachnoten grades[max];
 int check_file(FILE* schueler, FILE* noten);
 void print_data(FILE* schueler);
 int menu_value();
+void add_student();

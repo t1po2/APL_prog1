@@ -3,6 +3,7 @@
 
 
 int main() {
+	srand(time(NULL));
 
 	//opens csv file in read mode 
 	FILE* schueler = fopen("schueler.csv", "r");
@@ -19,14 +20,29 @@ int main() {
 	
 	//which Menu Option is selected
 	
-	printf("%d\n", menu_value());
-	/*while (1) {
-		if (menu_value() == 1) {
 
-		}
-	}*/
+	int mvalue;
 	
-
+	while (1) {
+		mvalue =  menu_value();
+		if (mvalue == 1) {
+			add_student();
+		}
+		else if (mvalue == 5) {
+			break;
+		}
+	}
+	
+	for (int i=0; i < max; i++) {
+		if (student[i].id1 != 0) {
+			if (grades[i].id2 != 0) {
+				printf("schueler.csv\n");
+				printf("%d | %s %s \n", student[i].id1, student[i].name, student[i].nachname);
+				printf("noten.csv\n");
+				printf("%d | %d | %d | %d | %d | %d\n", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+			}
+		}
+	}
 
 	fclose(schueler);
 	fclose(noten);
