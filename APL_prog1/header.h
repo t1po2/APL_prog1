@@ -30,8 +30,9 @@ t_fachnoten grades[max];
 
 
 
-int check_file(FILE* schueler, FILE* noten);
-void print_data(FILE* schueler);
-int menu_value();
-void add_student();
-void edit_student();
+int check_file(FILE* schueler, FILE* noten); //check if file exists
+void print_data(FILE* schueler); //pulls data out of file
+int menu_value(); //input menu option
+void add_student(); //adds new student
+void edit_student(); //edit student iwth ID input
+void print_array(); // prints out current array

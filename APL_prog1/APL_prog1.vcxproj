@@ -127,7 +127,6 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="Menu_options.c" />
     <ClCompile Include="print_file.c" />
-    <ClCompile Include="temp_edit_student.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />

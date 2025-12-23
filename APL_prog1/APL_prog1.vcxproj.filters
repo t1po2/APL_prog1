@@ -27,9 +27,6 @@
     <ClCompile Include="Menu_options.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="temp_edit_student.c">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
