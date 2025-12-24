@@ -15,14 +15,18 @@ void print_data(FILE* schueler) {
 //add search function for detailed info of a student with open scanf and if == 0tahn exit option/searchfunction
 void print_array() {
 	printf("\n");
-	printf("----------------------------------------------------------------------------------------------\n");
 	printf("schueler.csv\n");
 	printf("------------\n");
-	printf("ID  |                       Name Nachname                         | Semester | Durschnittsnote\n\n");
+	printf("ID  | Name Nachname                                              | Semester | Durschnittsnote\n\n");
+	printf("----|------------------------------------------------------------|----------|--------------------\n");
 	
 	for (int i = 0; i < max; i++) {
 		if (student[i].id1 != 0) {
-			printf("%d|                        %s %s                          |     %d    | %f\n", student[i].id1, student[i].name, student[i].nachname,student[i].semester,student[i].average);
+			char displayname[60];
+			strcpy(displayname, student[i].name);
+			strcat(displayname, " ");
+			strcat(displayname, student[i].nachname);
+			printf("%-4d| %-59s|     %d    | %f\n", student[i].id1, displayname, student[i].semester, student[i].average);
 
 
 		}
@@ -38,4 +42,4 @@ void print_array() {
 	}
 	printf("----------------------------------------------------------------------------------------------\n");
 	printf("\n");
-}
+}		

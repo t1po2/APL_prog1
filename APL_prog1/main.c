@@ -33,6 +33,9 @@ int main() {
 		else if (mvalue == 2) {
 			edit_student();
 		}
+		else if (mvalue == 3) {
+			delete();
+		}
 		else if (mvalue == 4) {
 			print_array();
 		}

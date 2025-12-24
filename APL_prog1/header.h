@@ -3,7 +3,8 @@
 #include <stdbool.h>
 #include <time.h>
 #include <stdlib.h>
-#define max 10
+#define max 3
+
 
 //general data of students
 typedef struct {
@@ -36,3 +37,4 @@ int menu_value(); //input menu option
 void add_student(); //adds new student
 void edit_student(); //edit student iwth ID input
 void print_array(); // prints out current array
+void delete(); //deletes student id
