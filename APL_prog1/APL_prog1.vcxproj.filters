@@ -27,7 +27,7 @@
     <ClCompile Include="Menu_options.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="data_loeschen.c">
+    <ClCompile Include="average_calc.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

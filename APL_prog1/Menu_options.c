@@ -18,17 +18,20 @@ int menu_value() {
 
 	
 	
-
+	
 
 	//Option error
 	while (1) {
 		printf("Option auswaehlen:\t");
-		scanf("%d", &option_value);
-		if (option_value > 0 && option_value < 6) {
+		if (scanf("%d", &option_value) == 0) {
+			scanf("%*s"); // "Frisst" das ungültige Zeichen/Wort einfach auf
+			option_value = 9; // Setze es auf 9, damit das Programm "ungültig" sagt
+			break;
+		}
+		else if (option_value > 0 && option_value < 6) {
 			break;
 		}
 		else {
-			printf("Auswahloption nicht vorhanden\n");
 			option_value = 9;
 			break;
 		}
@@ -66,7 +69,7 @@ void add_student() {
 
 
 
-	int id_buffer;
+	int id_buffer=0;
 
 	//adds new student to student array
 	for (int i = 0; i < max; i++) {
@@ -88,6 +91,7 @@ void add_student() {
 		}
 	}
 	char input;
+
 	//adds new grades to grades array
 	printf("Fachnoten eintratgen? [y]es/[n]o\n");
 	scanf(" %c", &input);
@@ -111,7 +115,18 @@ void add_student() {
 			if (j == max - 1) {
 				printf("No more slots available");
 				return;
-
+			}
+		}
+	}
+	else {
+		for (int j = 0; j < max; j++) {
+			if (grades[j].id2 = id_buffer) {
+				grades[j].fach1 = 0;
+				grades[j].fach2 = 0;
+				grades[j].fach3 = 0;
+				grades[j].fach4 = 0;
+				grades[j].fach5 = 0;
+				break;
 			}
 		}
 	}
@@ -182,7 +197,7 @@ void edit_student() {
 
 
 //deletes student
-void delete() {
+void delete_id() {
 	print_array();
 	int del_id;
 
@@ -196,6 +211,12 @@ void delete() {
 			strcpy(student[i].nachname, "");
 			student[i].semester = 0;
 			student[i].average = 0;
+			grades[i].id2 = 0;
+			grades[i].fach1 = 0;
+			grades[i].fach2 = 0;
+			grades[i].fach3 = 0;
+			grades[i].fach4 = 0;
+			grades[i].fach5 = 0;
 			found = 1;
 			break;
 		}
@@ -206,6 +227,60 @@ void delete() {
 }
 
 
+//Menuoption 4 shows info of student
+void find_id() {
+	int loop1 = 1;
+	char find_id;
+	int search_id;
+	int found = 0;
+
+	while (loop1 = 1) {
+		printf("Fachnoten des Schuelers einsehen? [y]es/[n]o\t");
+		scanf(" %c", &find_id);
+		if (find_id == 'y') {
+			printf("Geben sie die ID ein:\t");
+			scanf(" %d", &search_id);
+			printf("------------\n");
+			for (int i = 0; i < max; i++) {
+				if (grades[i].id2 == search_id) {
+					printf("ID: %d\nFach1: %d\nFach2: %d\nFach3: %d\nFach4: %d\nFach5: %d\n", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+					found = 1;
+					break;
+				}	
+			}
+			if (found == 0) {
+				printf("ID %d konnte nicht gefunden werden.\n", search_id);
+			}
+		}
+		
+		else if (find_id == 'n') {
+			break;
+		}
+		else {
+			continue;
+		}
+	}
+
+}
+
+
+//Save and Exit Application
+void save_exit(FILE* schueler, FILE* noten) {
+
+	for (int i = 0; i < max; i++) {
+		if (student[i].id1 != 0) {
+			fprintf(schueler, "%d, %s, %s, %d, %f", student[i].id1, student[i].name, student[i].nachname, student[i].semester, student[i].average);
+		}
+	}
+
+	for (int i = 0; i < max; i++) {
+		if (grades[i].id2 != 0) {
+			fprintf(noten, "%d, %d, %d, %d, %d, %d", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+
+		}
+	}
+	return 1;
+}
 
 
 

@@ -32,9 +32,11 @@ t_fachnoten grades[max];
 
 
 int check_file(FILE* schueler, FILE* noten); //check if file exists
-void print_data(FILE* schueler); //pulls data out of file
 int menu_value(); //input menu option
 void add_student(); //adds new student
 void edit_student(); //edit student iwth ID input
 void print_array(); // prints out current array
-void delete(); //deletes student id
+void find_id();//shows info of student by inputtting ID
+void save_exit(FILE* schueler, FILE* noten);
+void delete_id();//Deletes Student ID and grades;
+void calc_grade();//calcs average grade

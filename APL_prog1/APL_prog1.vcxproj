@@ -123,8 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="average_calc.c" />
     <ClCompile Include="check_file.c" />
-    <ClCompile Include="data_loeschen.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Menu_options.c" />
     <ClCompile Include="print_file.c" />

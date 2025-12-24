@@ -10,8 +10,12 @@ int check_file(FILE* schueler, FILE* noten) {
 		return 1;
 	}
 	else {
-		// Daten einlesen am besten ist wenn schueler eingelesen wrd und dnann die ID auf schueler.csv mit ID auf noten.csv verglichen wird und dann dazu eine ein datens atz erzeugt wird wenn nichts vorhanden ist
+		for (int i = 0; i < max; i++) {
+			fscanf(schueler, "%d, %[^,], %[^,], %d, %f", &student[i].id1, student[i].name, student[i].nachname, &student[i].semester, &student[i].average);
+			fscanf(noten, "%d, %d, %d, %d, %d, %d", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+			return 2;
+		}
 	}
-	return 0;
+
 }
 
