@@ -27,6 +27,9 @@
     <ClCompile Include="Menu_options.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="data_loeschen.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">

@@ -17,6 +17,7 @@ int main() {
 		printf("Dateien wurden geladen.\n");
 	}
 
+
 	
 	//which Menu Option is selected
 	
@@ -33,15 +34,20 @@ int main() {
 		else if (mvalue == 2) {
 			edit_student();
 		}
+		else if (mvalue == 3) {
+			delete();
+		}
 		else if (mvalue == 4) {
 			print_array();
 		}
 		else if (mvalue == 5) {
 			break; //edit it back to break jsut for testing reasons
 		}
+		else {
+			printf("Auswahl ungültig");
+		}
+
 	}
-
-
 
 
 

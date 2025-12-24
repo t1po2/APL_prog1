@@ -29,6 +29,8 @@ int menu_value() {
 		}
 		else {
 			printf("Auswahloption nicht vorhanden\n");
+			option_value = 9;
+			break;
 		}
 	}
 	
@@ -174,12 +176,36 @@ void edit_student() {
 	else {
 		printf("Eingabe ungülttig.\n");
 	}
-
-
-
-
-
 }
+
+
+
+
+//deletes student
+void delete() {
+	print_array();
+	int del_id;
+
+	printf("Weclhe ID möchten sie loeschen?\n");
+	scanf(" %d", &del_id);
+	int found = 0;
+	for (int i = 0; i < max; i++) {
+		if (student[i].id1 == del_id) {
+			student[i].id1 = 0;
+			strcpy(student[i].name, ""); // Name auf leeren String setzen
+			strcpy(student[i].nachname, "");
+			student[i].semester = 0;
+			student[i].average = 0;
+			found = 1;
+			break;
+		}
+	}
+	if (found == 0) {
+		printf("Id %d wurde nicht gefunden\n", del_id);
+	}
+}
+
+
 
 
 
