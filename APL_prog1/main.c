@@ -32,11 +32,11 @@ int main() {
 			if (zeilen_check != 5) {
 				counter_schueler++;
 				char c;
-				while ((c = fgetc(schueler)) != '\n' && c != EOF);		//clears Puffer of garbage values
+				while ((c = fgetc(schueler)) != '\n' && c != EOF);		//clears Puffer of garbage valuesds
 				i--;
 				continue;
 			}
-			
+		
 		}
 		printf("Daten von schueler.csv sind geladen.\n");
 		printf("Es konnten %d Datensaetze nicht geladen werden, aufgrund fehlener Werte.\n", counter_schueler);
