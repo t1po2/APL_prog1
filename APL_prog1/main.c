@@ -71,7 +71,6 @@ int main() {
 
 
 
-	dsa
 	//Menu
 
 	int mvalue;
