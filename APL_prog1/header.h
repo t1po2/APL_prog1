@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <time.h>
 #include <stdlib.h>
-#define max 3
+#define max 50
 
 
 //general data of students
@@ -31,7 +31,6 @@ t_fachnoten grades[max];
 
 
 
-int check_file(FILE* schueler, FILE* noten); //check if file exists
 int menu_value(); //input menu option
 void add_student(); //adds new student
 void edit_student(); //edit student iwth ID input

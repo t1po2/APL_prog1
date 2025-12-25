@@ -120,7 +120,8 @@ void add_student() {
 	}
 	else {
 		for (int j = 0; j < max; j++) {
-			if (grades[j].id2 = id_buffer) {
+			if (grades[j].id2 ==0) {
+				grades[j].id2 = id_buffer;
 				grades[j].fach1 = 0;
 				grades[j].fach2 = 0;
 				grades[j].fach3 = 0;
@@ -143,6 +144,7 @@ void edit_student() {
 	char data_type;
 	printf("[s]chueler oder [n]oten bearbeiten\n");
 	scanf(" %c", &data_type);
+	char edit_name;
 
 
 
@@ -153,12 +155,16 @@ void edit_student() {
 		scanf("%d", &id_edit);
 		for (int i = 0; i < max; i++) {
 			if (id_edit == student[i].id1) {
-				printf("Neuen Namen eingeben:\n");
-				scanf(" %29s", &student[i].name);
-				printf("Neuen Nachnamen eingeben:\n");
-				scanf(" %29s", &student[i].nachname);
+				printf("namen aendern? [y]es/[n]o\t");
+				scanf(" %c", &edit_name);
+				if (edit_name == 'y') {
+					printf("Neuen Namen eingeben:\n");
+					scanf(" %29s", &student[i].name);
+					printf("Neuen Nachnamen eingeben:\n");
+					scanf(" %29s", &student[i].nachname);
+				}
 				printf("In welchem Semester ist der Student gerade?\n");
-				printf("%d", &student[i].semester);
+				scanf("%d", &student[i].semester);
 				break;
 			}
 			else {
@@ -266,20 +272,21 @@ void find_id() {
 
 //Save and Exit Application
 void save_exit(FILE* schueler, FILE* noten) {
+	schueler = fopen("schueler.csv", "w");
+	noten = fopen("noten.csv", "w");
 
 	for (int i = 0; i < max; i++) {
 		if (student[i].id1 != 0) {
-			fprintf(schueler, "%d, %s, %s, %d, %f", student[i].id1, student[i].name, student[i].nachname, student[i].semester, student[i].average);
+			fprintf(schueler, "%d, %s, %s, %d, %f\n", student[i].id1, student[i].name, student[i].nachname, student[i].semester, student[i].average);
 		}
 	}
 
 	for (int i = 0; i < max; i++) {
 		if (grades[i].id2 != 0) {
-			fprintf(noten, "%d, %d, %d, %d, %d, %d", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+			fprintf(noten, "%d, %d, %d, %d, %d, %d\n", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
 
 		}
 	}
-	return 1;
 }
 
 

@@ -50,12 +50,12 @@ int main() {
 	}
 	else {
 		for (int i = 0; i < max; i++) {
-			int zeilen_check = fscanf(noten, "%d, %d, %d, %d, %d, %d", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+			int zeilen_check = fscanf(noten, "%d, %d, %d, %d, %d, %d", &grades[i].id2, &grades[i].fach1, &grades[i].fach2, &grades[i].fach3, &grades[i].fach4, &grades[i].fach5);
 
 			if (zeilen_check == EOF) {
 				break;
 			}
-			if (zeilen_check != 5) {
+			if (zeilen_check != 6) {
 				counter_noten++;
 				char c;
 				while ((c = fgetc(schueler)) != '\n' && c != EOF);			//clears Puffer of garbage values
@@ -68,6 +68,10 @@ int main() {
 		printf("Es konnten %d Datensaetze nicht geladen werden, aufgrund fehlener Werte.\n", counter_noten);
 		
 	}
+	fclose(schueler);
+	fclose(noten);
+	schueler=fopen("schueler.csv", "w");
+	noten=fopen("noten.csv", "w");
 
 
 
