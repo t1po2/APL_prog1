@@ -43,7 +43,7 @@ int main() {
 	}
 
 
-	//this literation checks if file exists and if yes than Data will be saved to a array if not a new File will be created for noten.csv
+	//this literation checks if file exists and if yes than Data will be saved to a array if not a new File will be created for noten.csv´dsadda
 	if (noten == NULL) {
 		printf("Keine noten.csv Datei vorhanden.\n");
 		noten = fopen("noten.csv", "w");
