@@ -22,7 +22,7 @@ int menu_value() {
 
 	//Option error
 	while (1) {
-		printf("Option auswaehlen:\t");
+		printf("\nOption auswaehlen:\t");
 		if (scanf("%d", &option_value) == 0) {
 			scanf("%*s"); // "Frisst" das ungültige Zeichen/Wort einfach auf
 			option_value = 9; // Setze es auf 9, damit das Programm "ungültig" sagt
