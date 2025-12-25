@@ -32,18 +32,18 @@ int main() {
 			if (zeilen_check != 5) {
 				counter_schueler++;
 				char c;
-				while ((c = fgetc(schueler)) != '\n' && c != EOF);		//clears Puffer of garbage valuesds
+				while ((c = fgetc(schueler)) != '\n' && c != EOF);		//clears Puffer of garbage values
 				i--;
 				continue;
 			}
-		
+			
 		}
 		printf("Daten von schueler.csv sind geladen.\n");
 		printf("Es konnten %d Datensaetze nicht geladen werden, aufgrund fehlener Werte.\n", counter_schueler);
 	}
 
 
-	//this literation checks if file exists and if yes than Data will be saved to a array if not a new File will be created for noten.csv´dsadda
+	//this literation checks if file exists and if yes than Data will be saved to a array if not a new File will be created for noten.csv
 	if (noten == NULL) {
 		printf("Keine noten.csv Datei vorhanden.\n");
 		noten = fopen("noten.csv", "w");
@@ -71,7 +71,6 @@ int main() {
 
 
 
-	dsa
 	//Menu
 
 	int mvalue;
