@@ -31,6 +31,7 @@ t_fachnoten grades[max];
 
 
 
+int check_file(FILE* schueler, FILE* noten); //check if file exists
 int menu_value(); //input menu option
 void add_student(); //adds new student
 void edit_student(); //edit student iwth ID input
@@ -39,3 +40,5 @@ void find_id();//shows info of student by inputtting ID
 void save_exit(FILE* schueler, FILE* noten);
 void delete_id();//Deletes Student ID and grades;
 void calc_grade();//calcs average grade
+int check_datatype(const char* aufforderung); //little addition to avoid false inputs
+void grades_filler();//error in files automated grades and matching id will be filled 

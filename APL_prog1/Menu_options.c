@@ -22,7 +22,7 @@ int menu_value() {
 
 	//Option error
 	while (1) {
-		printf("\nOption auswaehlen:\t");
+		printf("Option auswaehlen:\t");
 		if (scanf("%d", &option_value) == 0) {
 			scanf("%*s"); // "Frisst" das ungültige Zeichen/Wort einfach auf
 			option_value = 9; // Setze es auf 9, damit das Programm "ungültig" sagt
@@ -46,6 +46,7 @@ int menu_value() {
 
 
 //Function to let add new students
+//Option: 1
 
 void add_student() {
 
@@ -80,8 +81,8 @@ void add_student() {
 			scanf(" %29s", student[i].name);
 			printf("Nachname:\t");
 			scanf(" %29s", student[i].nachname);
-			printf("In welchen Semester ist der Student gerade?:\t");
-			scanf(" %d", &student[i].semester);
+			
+			student[i].semester = check_datatype("In welchen Semester ist der Student gerade ? :\t");
 			id_buffer = student[i].id1;
 			break;
 		}
@@ -100,16 +101,26 @@ void add_student() {
 			if (grades[j].id2 == 0) {
 				grades[j].id2 = id_buffer;
 				printf("Neue Fachnoten eintragen:\n");
-				printf("Fachnote 1:\t");
-				scanf("%d", &grades[j].fach1);
-				printf("Fachnote 2:\t");
-				scanf("%d", &grades[j].fach2);
-				printf("Fachnote 3:\t");
-				scanf("%d", &grades[j].fach3);
-				printf("Fachnote 4:\t");
-				scanf("%d", &grades[j].fach4);
-				printf("Fachnote 5:\t");
-				scanf("%d", &grades[j].fach5);
+				grades[j].fach1 = check_datatype("Fachnote 1:\t");
+				if (grades[j].fach1 < 1 || grades[j].fach1 >6) {
+					grades[j].fach1 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach2 = check_datatype("Fachnote 2:\t");
+				if (grades[j].fach2 < 1 || grades[j].fach2 >6) {
+					grades[j].fach2 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach3 = check_datatype("Fachnote 3:\t");
+				if (grades[j].fach3 < 1 || grades[j].fach3 >6) {
+					grades[j].fach3 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach4 = check_datatype("Fachnote 4:\t");
+				if (grades[j].fach4 < 1 || grades[j].fach4 >6) {
+					grades[j].fach4 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach5 = check_datatype("Fachnote 5:\t");
+				if (grades[j].fach5 < 1 || grades[j].fach5 >6) {
+					grades[j].fach5= check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
 				break;
 			}
 			if (j == max - 1) {
@@ -119,21 +130,22 @@ void add_student() {
 		}
 	}
 	else {
-		for (int j = 0; j < max; j++) {
-			if (grades[j].id2 ==0) {
-				grades[j].id2 = id_buffer;
-				grades[j].fach1 = 0;
-				grades[j].fach2 = 0;
-				grades[j].fach3 = 0;
-				grades[j].fach4 = 0;
-				grades[j].fach5 = 0;
+		for (int k = 0; k< max; k++) {
+			if (grades[k].id2 == 0) {
+				grades[k].id2 = id_buffer;
+				grades[k].fach1 = 0;
+				grades[k].fach2 = 0;
+				grades[k].fach3 = 0;
+				grades[k].fach4 = 0;
+				grades[k].fach5 = 0;
 				break;
 			}
 		}
 	}
 }
 
-//edits student llr in the lsit
+//edits students info 
+//Option: 2
 void edit_student() {
 
 
@@ -141,52 +153,56 @@ void edit_student() {
 	print_array();
 
 	int id_edit;
-	char data_type;
+	char edit_type;
 	printf("[s]chueler oder [n]oten bearbeiten\n");
-	scanf(" %c", &data_type);
-	char edit_name;
+	scanf(" %c", &edit_type);
 
 
 
 
 
-	if (data_type == 's') {
-		printf("Welche ID möchten sie bearbeiten?\n");
-		scanf("%d", &id_edit);
+	if (edit_type == 's') {
+		id_edit=check_datatype("Welche ID möchten sie bearbeiten?\n");
+
 		for (int i = 0; i < max; i++) {
 			if (id_edit == student[i].id1) {
-				printf("namen aendern? [y]es/[n]o\t");
-				scanf(" %c", &edit_name);
-				if (edit_name == 'y') {
-					printf("Neuen Namen eingeben:\n");
-					scanf(" %29s", &student[i].name);
-					printf("Neuen Nachnamen eingeben:\n");
-					scanf(" %29s", &student[i].nachname);
-				}
-				printf("In welchem Semester ist der Student gerade?\n");
-				scanf("%d", &student[i].semester);
-				break;
+				printf("Neuen Namen eingeben:\n");
+				scanf(" %29s", &student[i].name);
+				printf("Neuen Nachnamen eingeben:\n");
+				scanf(" %29s", &student[i].nachname);
+				student[i].semester = check_datatype("In welchen Semester ist der Student gerade ? :\t");
 			}
 			else {
 				printf("ID nicht gefunden.\n");
 			}
 		}
 	}
-	else if (data_type == 'n') {
+	else if (edit_type == 'n') {
 		printf("Welche ID möchten sie bearbeiten?\n");
 		scanf("%d", &id_edit);
-		for (int i = 0; i < max; i++) {
-			if (id_edit == student[i].id1) {
-				printf("Note für Fach 1 eingeben:\t");
-				scanf("%d", &grades[i].fach1);
-				printf("Note für Fach 2 eingeben:\t");
-				scanf("%d", &grades[i].fach2);
-				printf("Note für Fach 3 eingeben:\t");
-				scanf("%d", &grades[i].fach3);
-				printf("Note für Fach 4 eingeben:\t");
-				scanf("%d", &grades[i].fach4);
-				printf("Note für Fach 5 eingeben:\t");
-				scanf("%d", &grades[i].fach5);
+		for (int j = 0; j < max; j++) {
+			if (id_edit == student[j].id1) {
+				printf("Neue Fachnoten eintragen:\n");
+				grades[j].fach1 = check_datatype("Fachnote 1:\t");
+				if (grades[j].fach1 < 1 || grades[j].fach1 >6) {
+					grades[j].fach1 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach2 = check_datatype("Fachnote 2:\t");
+				if (grades[j].fach2 < 1 || grades[j].fach2 >6) {
+					grades[j].fach2 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach3 = check_datatype("Fachnote 3:\t");
+				if (grades[j].fach3 < 1 || grades[j].fach3 >6) {
+					grades[j].fach3 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach4 = check_datatype("Fachnote 4:\t");
+				if (grades[j].fach4 < 1 || grades[j].fach4 >6) {
+					grades[j].fach4 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
+				grades[j].fach5 = check_datatype("Fachnote 5:\t");
+				if (grades[j].fach5 < 1 || grades[j].fach5 >6) {
+					grades[j].fach5 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				}
 				break;
 			}
 			else {
@@ -203,12 +219,12 @@ void edit_student() {
 
 
 //deletes student
+//Option:3
 void delete_id() {
 	print_array();
 	int del_id;
 
-	printf("Weclhe ID möchten sie loeschen?\n");
-	scanf(" %d", &del_id);
+	del_id = check_datatype("Weclhe ID möchten sie loeschen?\n");
 	int found = 0;
 	for (int i = 0; i < max; i++) {
 		if (student[i].id1 == del_id) {
@@ -233,7 +249,9 @@ void delete_id() {
 }
 
 
-//Menuoption 4 shows info of student
+ 
+//shows info of student
+//Option:4
 void find_id() {
 	int loop1 = 1;
 	char find_id;
@@ -244,12 +262,15 @@ void find_id() {
 		printf("Fachnoten des Schuelers einsehen? [y]es/[n]o\t");
 		scanf(" %c", &find_id);
 		if (find_id == 'y') {
-			printf("Geben sie die ID ein:\t");
-			scanf(" %d", &search_id);
+			search_id = check_datatype("ID eingeben:\t");
 			printf("------------\n");
 			for (int i = 0; i < max; i++) {
 				if (grades[i].id2 == search_id) {
-					printf("ID: %d\nFach1: %d\nFach2: %d\nFach3: %d\nFach4: %d\nFach5: %d\n", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+					char displayname[60];
+					strcpy(displayname, student[i].name);
+					strcat(displayname, " ");
+					strcat(displayname, student[i].nachname);
+					printf("ID: %d\n%s\nFach1: %d\nFach2: %d\nFach3: %d\nFach4: %d\nFach5: %d\n", grades[i].id2,displayname, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
 					found = 1;
 					break;
 				}	
@@ -271,25 +292,29 @@ void find_id() {
 
 
 //Save and Exit Application
+//Option:5
 void save_exit(FILE* schueler, FILE* noten) {
-	schueler = fopen("schueler.csv", "w");
-	noten = fopen("noten.csv", "w");
 
 	for (int i = 0; i < max; i++) {
-		if (student[i].id1 != 0) {
+		if (student[i].id1 == 0) {
+			continue;
+		}
+		else {
 			fprintf(schueler, "%d, %s, %s, %d, %f\n", student[i].id1, student[i].name, student[i].nachname, student[i].semester, student[i].average);
 		}
 	}
 
 	for (int i = 0; i < max; i++) {
-		if (grades[i].id2 != 0) {
+		if (grades[i].id2 == 0) {
+			continue;
+		}
+		else {
 			fprintf(noten, "%d, %d, %d, %d, %d, %d\n", grades[i].id2, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
-
 		}
 	}
+	printf("-Erfolgreich gespeichert-");
+	return ;
 }
-
-
 
 
 

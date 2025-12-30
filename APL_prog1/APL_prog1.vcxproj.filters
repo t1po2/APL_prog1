@@ -18,13 +18,13 @@
     <ClCompile Include="main.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="print_file.c">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Menu_options.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="average_calc.c">
+    <ClCompile Include="error_functions.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="helper_functions.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

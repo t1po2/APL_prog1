@@ -123,10 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="average_calc.c" />
+    <ClCompile Include="error_functions.c" />
+    <ClCompile Include="helper_functions.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Menu_options.c" />
-    <ClCompile Include="print_file.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />

@@ -47,6 +47,7 @@ int main() {
 	if (noten == NULL) {
 		printf("Keine noten.csv Datei vorhanden.\n");
 		noten = fopen("noten.csv", "w");
+		
 	}
 	else {
 		for (int i = 0; i < max; i++) {
@@ -68,16 +69,18 @@ int main() {
 		printf("Es konnten %d Datensaetze nicht geladen werden, aufgrund fehlener Werte.\n", counter_noten);
 		
 	}
+	
 	fclose(schueler);
 	fclose(noten);
-	schueler=fopen("schueler.csv", "w");
-	noten=fopen("noten.csv", "w");
+	schueler = fopen("schueler.csv", "w");
+	noten = fopen("noten.csv", "w");
 
-
+	grades_filler();
 
 	//Menu
 
 	int mvalue;
+	
 	
 	while (1) {
 		
@@ -131,7 +134,7 @@ int main() {
 	//test print
 	
 	
-
+	
 	fclose(schueler);
 	fclose(noten);
 	return 0;
