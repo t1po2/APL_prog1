@@ -72,8 +72,7 @@ int main() {
 	
 	fclose(schueler);
 	fclose(noten);
-	schueler = fopen("schueler.csv", "w");
-	noten = fopen("noten.csv", "w");
+	
 
 	grades_filler();
 
@@ -108,15 +107,20 @@ int main() {
 		else if (mvalue == 4) {
 			printf("\n\n");
 			printf("\nOption: %d wurde ausgewaehlt\n", mvalue);
+			sort_students_by_name();
 			print_array();
 			find_id();
 			
 		}
 		else if (mvalue == 5) {
+			schueler = fopen("schueler.csv", "w");
+			noten = fopen("noten.csv", "w");
 			printf("\n\n");
 			printf("\nOption: %d wurde ausgewaehlt\n", mvalue);
 			calc_grade();
+			sort_students_by_name();
 			save_exit(schueler, noten);
+			
 			break; //edit it back to break jsut for testing reasons
 		}
 		calc_grade();

@@ -15,6 +15,7 @@ void print_array() {
 			strcat(displayname, " ");
 			strcat(displayname, student[i].nachname);
 			printf("%-4d| %-59s|     %d    | %.2f\n", student[i].id1, displayname, student[i].semester, student[i].average);
+			printf("\n");
 		}
 	}
 }
@@ -45,6 +46,33 @@ void calc_grade() {
 					student[i].average = 0.0;
 				}
 				break;
+
+			}
+		}
+	}
+}
+
+
+
+
+void sort_students_by_name() {
+	//temporaray place to hold the string  to sort
+	t_schueler_generalinfo temp_s;
+	t_fachnoten temp_g;
+
+	//comparrison of 2 names
+	for (int i = 0; i < max - 1; i++) {
+		for (int j = 0; j < max - i - 1; j++) {
+
+			//strcmp compare Charackters
+			if (strcmp(student[j].name, student[j + 1].name) > 0) {
+
+				// --- GANZE DATENREIHE TAUSCHEN ---
+
+				//sorting
+				temp_s = student[j];
+				student[j] = student[j + 1];
+				student[j + 1] = temp_s;
 
 			}
 		}

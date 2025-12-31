@@ -129,8 +129,22 @@ void add_student() {
 			}
 		}
 	}
-	else {
+	else if (input=='n') {
 		for (int k = 0; k< max; k++) {
+			if (grades[k].id2 == 0) {
+				grades[k].id2 = id_buffer;
+				grades[k].fach1 = 0;
+				grades[k].fach2 = 0;
+				grades[k].fach3 = 0;
+				grades[k].fach4 = 0;
+				grades[k].fach5 = 0;
+				break;
+			}
+		}
+	}
+	else {
+		printf("Eingabe ungueltig.\nFachnoten werden 0 gesetzt.\nIm Menu aenderbar.\n\n");
+		for (int k = 0; k < max; k++) {
 			if (grades[k].id2 == 0) {
 				grades[k].id2 = id_buffer;
 				grades[k].fach1 = 0;
@@ -152,66 +166,76 @@ void edit_student() {
 
 	print_array();
 
-	int id_edit;
-	char edit_type;
-	printf("[s]chueler oder [n]oten bearbeiten\n");
-	scanf(" %c", &edit_type);
+	
+	
+
+	int loop = 1;
+
+	while (loop == 1) {
+		int id_edit;
+		char edit_type;
+		printf("[s]chueler oder [n]oten bearbeiten. Beliebige Taste drücken um ins Menu zurueck zu kehren.\n");
+		scanf(" %c", &edit_type);
 
 
-
-
-
-	if (edit_type == 's') {
-		id_edit=check_datatype("Welche ID möchten sie bearbeiten?\n");
-
-		for (int i = 0; i < max; i++) {
-			if (id_edit == student[i].id1) {
-				printf("Neuen Namen eingeben:\n");
-				scanf(" %29s", &student[i].name);
-				printf("Neuen Nachnamen eingeben:\n");
-				scanf(" %29s", &student[i].nachname);
-				student[i].semester = check_datatype("In welchen Semester ist der Student gerade ? :\t");
-			}
-			else {
-				printf("ID nicht gefunden.\n");
-			}
-		}
-	}
-	else if (edit_type == 'n') {
-		printf("Welche ID möchten sie bearbeiten?\n");
-		scanf("%d", &id_edit);
-		for (int j = 0; j < max; j++) {
-			if (id_edit == student[j].id1) {
-				printf("Neue Fachnoten eintragen:\n");
-				grades[j].fach1 = check_datatype("Fachnote 1:\t");
-				if (grades[j].fach1 < 1 || grades[j].fach1 >6) {
-					grades[j].fach1 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+		if (edit_type == 's') {
+			id_edit = check_datatype("Welche ID möchten sie bearbeiten?\n");
+			int found = 0;
+			for (int i = 0; i < max; i++) {
+				if (id_edit == student[i].id1) {
+					printf("Neuen Namen eingeben:\n");
+					scanf(" %29s", &student[i].name);
+					printf("Neuen Nachnamen eingeben:\n");
+					scanf(" %29s", &student[i].nachname);
+					student[i].semester = check_datatype("In welchen Semester ist der Student gerade ? :\t");
+					found = 1;
+					break;
 				}
-				grades[j].fach2 = check_datatype("Fachnote 2:\t");
-				if (grades[j].fach2 < 1 || grades[j].fach2 >6) {
-					grades[j].fach2 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+				else if (found == 0) {
+					printf("ID nicht gefunden.\n");
+					break;
 				}
-				grades[j].fach3 = check_datatype("Fachnote 3:\t");
-				if (grades[j].fach3 < 1 || grades[j].fach3 >6) {
-					grades[j].fach3 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
-				}
-				grades[j].fach4 = check_datatype("Fachnote 4:\t");
-				if (grades[j].fach4 < 1 || grades[j].fach4 >6) {
-					grades[j].fach4 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
-				}
-				grades[j].fach5 = check_datatype("Fachnote 5:\t");
-				if (grades[j].fach5 < 1 || grades[j].fach5 >6) {
-					grades[j].fach5 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
-				}
-				break;
-			}
-			else {
-				printf("ID nicht gefunden.\n");
 			}
 		}
-	}
-	else {
-		printf("Eingabe ungülttig.\n");
+		else if (edit_type == 'n') {
+			id_edit = check_datatype("Welche ID möchten sie bearbeiten?\n");
+			int found = 0;
+			for (int j = 0; j < max; j++) {
+				if (id_edit == student[j].id1) {
+					printf("Neue Fachnoten eintragen:\n");
+					grades[j].fach1 = check_datatype("Fachnote 1:\t");
+					if (grades[j].fach1 < 1 || grades[j].fach1 >6) {
+						grades[j].fach1 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+					}
+					grades[j].fach2 = check_datatype("Fachnote 2:\t");
+					if (grades[j].fach2 < 1 || grades[j].fach2 >6) {
+						grades[j].fach2 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+					}
+					grades[j].fach3 = check_datatype("Fachnote 3:\t");
+					if (grades[j].fach3 < 1 || grades[j].fach3 >6) {
+						grades[j].fach3 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+					}
+					grades[j].fach4 = check_datatype("Fachnote 4:\t");
+					if (grades[j].fach4 < 1 || grades[j].fach4 >6) {
+						grades[j].fach4 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+					}
+					grades[j].fach5 = check_datatype("Fachnote 5:\t");
+					if (grades[j].fach5 < 1 || grades[j].fach5 >6) {
+						grades[j].fach5 = check_datatype("Bitte geben sie eine Note zwichen 1 und 6 an:\t");
+					}
+					found = 1;
+					break;
+				}
+				else if (found == 0) {
+					printf("ID nicht gefunden.\n");
+					break;
+				}
+			}
+		}
+		else {
+			loop = 0;
+			break;
+		}
 	}
 }
 
@@ -226,10 +250,12 @@ void delete_id() {
 
 	del_id = check_datatype("Weclhe ID möchten sie loeschen?\n");
 	int found = 0;
+
+
 	for (int i = 0; i < max; i++) {
 		if (student[i].id1 == del_id) {
 			student[i].id1 = 0;
-			strcpy(student[i].name, ""); // Name auf leeren String setzen
+			strcpy(student[i].name, ""); // sets name to a empty string
 			strcpy(student[i].nachname, "");
 			student[i].semester = 0;
 			student[i].average = 0;
@@ -240,6 +266,19 @@ void delete_id() {
 			grades[i].fach4 = 0;
 			grades[i].fach5 = 0;
 			found = 1;
+			for (int j = i; j < max - 1; j++) {
+				student[j] = student[j + 1];
+				grades[j] = grades[j + 1];
+			}
+			// deletes last slot of array because deleted info are just at the end
+			student[max - 1].id1 = 0;
+			strcpy(student[max - 1].name, "");
+			strcpy(student[max - 1].nachname, "");
+			student[max - 1].semester = 0;
+			student[max - 1].average = 0;
+
+			grades[max - 1].id2 = 0;
+			grades[max - 1].fach1 = 0;
 			break;
 		}
 	}
@@ -266,11 +305,18 @@ void find_id() {
 			printf("------------\n");
 			for (int i = 0; i < max; i++) {
 				if (grades[i].id2 == search_id) {
-					char displayname[60];
-					strcpy(displayname, student[i].name);
-					strcat(displayname, " ");
-					strcat(displayname, student[i].nachname);
-					printf("ID: %d\n%s\nFach1: %d\nFach2: %d\nFach3: %d\nFach4: %d\nFach5: %d\n", grades[i].id2,displayname, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
+					char name[60];
+					for (int k = 0; k < max; k++) {
+						if (student[k].id1 == search_id) {
+							char displayname[60];
+							strcpy(displayname, student[k].name);
+							strcat(displayname, " ");
+							strcat(displayname, student[k].nachname);
+							strcpy(name, displayname);
+							break;
+						}
+					}
+					printf("ID: %d\n%s\nFach1: %d\nFach2: %d\nFach3: %d\nFach4: %d\nFach5: %d\n\n", grades[i].id2,name, grades[i].fach1, grades[i].fach2, grades[i].fach3, grades[i].fach4, grades[i].fach5);
 					found = 1;
 					break;
 				}	
@@ -284,7 +330,9 @@ void find_id() {
 			break;
 		}
 		else {
-			continue;
+			int c;
+			while ((c = getchar()) != '\n' && c != EOF);
+			 continue;
 		}
 	}
 
@@ -295,6 +343,8 @@ void find_id() {
 //Option:5
 void save_exit(FILE* schueler, FILE* noten) {
 
+
+	//all students with id !=0 are not printed on to the File
 	for (int i = 0; i < max; i++) {
 		if (student[i].id1 == 0) {
 			continue;

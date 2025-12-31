@@ -42,3 +42,4 @@ void delete_id();//Deletes Student ID and grades;
 void calc_grade();//calcs average grade
 int check_datatype(const char* aufforderung); //little addition to avoid false inputs
 void grades_filler();//error in files automated grades and matching id will be filled 
+void sort_students_by_name(); //sorts name alphabetically 
